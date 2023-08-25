@@ -12,9 +12,9 @@ RSpec.describe Post, type: :model do
     end
 
     it 'title should be less than 251 chars' do
-      subject.title = 'aaaaaaaaaaaa bbbbbbbbbbbbb cccccccccccccc 
+      subject.title = 'aaaaaaaaaaaa bbbbbbbbbbbbb cccccccccccccc
       ddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffff
-      gggggggggg hhhhhhhhhhhhhhh iiiiiiiiiiiiiiiiii 
+      gggggggggg hhhhhhhhhhhhhhh iiiiiiiiiiiiiiiiii
       jjjjjjjjjjjjjjjjj kkkkkkkkkkkkkkkkkkkk lllllllllllll mmmmmm
       nnnnnnnnnnnnn oooooooooooo pppppppppppppppppp qqqqqqqqqqqqqqq' # 251 chars
       expect(subject).to_not be_valid
