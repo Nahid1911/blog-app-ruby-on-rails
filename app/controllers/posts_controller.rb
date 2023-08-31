@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.all
-    @post=Post.find params[:id]
-    @post_id = @posts.index(@post) + 1 
+    @post = Post.find params[:id]
+    @post_id = @posts.index(@post) + 1
   end
 end
