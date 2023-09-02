@@ -29,13 +29,17 @@
           <h5 class="card-title">Post #<%= @recent_posts.index(post) + 1%></h5>
         </a>
         <p class="card-text"><%= post.text %></p>
-        <div class= "card-text">
+        <div class= "d-flex card-text">
           <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>'>
-            <span class="card-text">Comments:</span>
+            <span class="btn btn-light">Comments:</span>
           </a>
-          <span class="card-text">
-            <%= post.comments_counter%></span>
-          <span class="card-text">Likes: <%= post.likes_counter%></span>
+          <button class= "btn btn-light" disabled>
+            <%= post.comments_counter%></button>
+          <%= form_for(post.likes.new, url: user_post_likes_path(post.author, post)) do |f| %>
+            <%= f.hidden_field :author_id, value: @current_user %>
+            <%= f.submit "Like:", class: "btn btn-light" %>
+          <% end %>
+          <button class= "btn btn-light" disabled><%= post.likes_counter%></button>
         </div>
       </div>
     </div>
