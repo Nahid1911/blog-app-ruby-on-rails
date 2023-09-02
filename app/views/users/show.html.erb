@@ -30,7 +30,11 @@
         </a>
         <p class="card-text"><%= post.text %></p>
         <div class= "card-text">
-          <span class="card-text">Comments: <%= post.comments_counter%></span>
+          <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>'>
+            <span class="card-text">Comments:</span>
+          </a>
+          <span class="card-text">
+            <%= post.comments_counter%></span>
           <span class="card-text">Likes: <%= post.likes_counter%></span>
         </div>
       </div>
