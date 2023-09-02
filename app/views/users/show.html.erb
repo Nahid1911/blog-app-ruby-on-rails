@@ -17,6 +17,7 @@
     <div class="card-body text-success text-bg-light p-3">
       <h5 class="card-title">Bio</h5>
       <p class="card-text"><%= @user.bio%></p>
+      <button type="button" class="btn btn-outline-primary">Create New Post</button>
     </div>
   </div>
   <% @recent_posts.each do |post|%>
@@ -35,7 +36,7 @@
   <% end %>
   <div class="d-grid gap-2 col-6 mx-auto">
     <a href = '<%= user_posts_path(@user) %>'>
-      <button type="button" class="btn btn-outline-primary" disabled>See All Posts</button>
+      <button type="button" class="btn btn-outline-primary">See All Posts</button>
     </div>
   </div>
   <br/>
