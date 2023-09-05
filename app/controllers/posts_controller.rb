@@ -6,15 +6,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    set_current_user   
+    set_current_user
     @user = @current_user
     @posts = @user.posts.order(created_at: :desc)
     post_id = params[:id]
     @post = @posts.find(post_id)
     @post_id = @posts.find_index(@post) + 1
   end
-  
-  
 
   def new
     @user = User.find(params[:user_id])
