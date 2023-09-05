@@ -28,6 +28,7 @@
         <a href = <%= user_post_path(post.author.id, post.id) %>>
           <h5 class="card-title">Post #<%= @recent_posts.index(post) + 1%></h5>
         </a>
+        <h5>Post Title: <%= post.title %> </h5>
         <p class="card-text"><%= post.text %></p>
         <div class= "d-flex card-text">
           <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>'>

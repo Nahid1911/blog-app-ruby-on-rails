@@ -19,6 +19,7 @@
         <a href = '<%= user_post_path(@user, post) %>'>
           <h5 class="card-title">Post #<%= @posts.index(post) + 1 %></h5>
         </a>
+        <h5>Post Title: <%= post.title %> </h5>
         <p class="card-text"><%= post.text %></p>
         <div class="card-text">
           <span class="card-text">Comments: <%= post.comments_counter %></span>
