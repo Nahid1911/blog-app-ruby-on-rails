@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recent_posts = @user.three_most_recent_posts
-    @posts = Post.all
+    @user_posts = @user.posts
+    @recent_posts = @user_posts.limit(3)
   end
 end

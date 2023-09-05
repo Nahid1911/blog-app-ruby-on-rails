@@ -19,6 +19,7 @@
         <a href = '<%= user_post_path(@user, post) %>'>
           <h5 class="card-title">Post #<%= @posts.index(post) + 1 %></h5>
         </a>
+        <h5>Post Title: <%= post.title %> </h5>
         <p class="card-text"><%= post.text %></p>
         <div class="card-text">
           <span class="card-text">Comments: <%= post.comments_counter %></span>
@@ -35,4 +36,17 @@
       </div>
     </div>
   <% end %>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
 </div>
