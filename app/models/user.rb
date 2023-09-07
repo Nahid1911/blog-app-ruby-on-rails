@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, foreign_key: :author_id
-  has_many :commets
+  has_many :comments
   has_many :likes
 
   attribute :name, :string
-  attribute :bio, :text
+  attribute :bio, :text 
   attribute :post_counter, :integer, default: 0
   attribute :photo, :string
 
