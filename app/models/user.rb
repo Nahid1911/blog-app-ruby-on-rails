@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :likes
 
   attribute :name, :string
-  attribute :bio, :text 
+  attribute :bio, :text
   attribute :post_counter, :integer, default: 0
   attribute :photo, :string
 
