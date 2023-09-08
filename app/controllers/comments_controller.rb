@@ -24,16 +24,13 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.user == @user
-      # Authorization check passed
       @comment.destroy
       flash[:notice] = 'Comment successfully deleted.'
     else
-      # Authorization check failed
       flash[:alert] = 'You are not authorized to delete this comment.'
     end
     redirect_to user_post_path
   end
-
 
   private
 
