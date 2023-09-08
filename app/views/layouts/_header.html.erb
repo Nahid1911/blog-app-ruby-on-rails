@@ -14,6 +14,9 @@
           <li class="nav-item">
             <%= link_to "Edit Password", edit_user_registration_path, class: "nav-link active" %>
           </li>
+          <li>
+            <h4 class="text-info"><span>Loged In As:  <%= current_user.name%></span></h4>
+          </li>
         <% else %>
           <!-- User is not logged in, show "Sign Up" and "Sign In" links -->
           <li class="nav-item">

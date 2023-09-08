@@ -11,8 +11,11 @@
           <span class="card-text">Likes: <%= @post.likes_counter%></span>
         </div>
       </div>
-      <h5>Post Title: <%= @post.title %> </h5>
+      <h5>Post Title: <%= @post.title %></h5>
       <p class="card-text"><%= @post.text %></p>
+      <% if @post.author.id == current_user.id || current_user.admin? %>
+        <%= button_to 'Delete Post', user_post_path(@post.author, @post), method: :delete, class: 'btn btn-danger' %>
+      <% end %>
       <div class= "card-text">
         <hr>
         <div>
