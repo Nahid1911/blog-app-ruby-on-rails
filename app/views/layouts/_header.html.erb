@@ -15,19 +15,19 @@
             <%= link_to "Edit Password", edit_user_registration_path, class: "nav-link active" %>
           </li>
           <li>
-          <% else %>
-            <!-- User is not logged in, show "Sign Up" and "Sign In" links -->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<%= new_user_registration_path %>">Sign Up |</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<%= user_session_path %>">Sign In |</a>
-            </li>
-          <% end %>
-        </ul>
-        <div>
-          <h4 class="text-info"><span>Loged In As:  <%= current_user.name%></span></h4>
-        </div>
+          </ul>
+          <div>
+            <h4 class="text-info"><span>Loged In As:  <%= current_user.name%></span></h4>
+          </div>
+        <% else %>
+          <!-- User is not logged in, show "Sign Up" and "Sign In" links -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<%= new_user_registration_path %>">Sign Up |</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="<%= user_session_path %>">Sign In |</a>
+          </li>
+        <% end %>
       </div>
     </div>
   </nav>
