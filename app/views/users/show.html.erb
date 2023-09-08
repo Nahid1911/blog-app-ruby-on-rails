@@ -17,9 +17,11 @@
     <div class="card-body text-success text-bg-light p-3">
       <h5 class="card-title">Bio</h5>
       <p class="card-text"><%= @user.bio%></p>
-      <a href='<%=new_user_post_path(@user.id, @post)%>'>
-        <button type="button" class="btn btn-outline-primary">Create New Post</button>
-      </a>
+      <% if @user == current_user %>
+        <a href='<%= new_user_post_path(@user.id) %>'>
+          <button type="button" class="btn btn-outline-primary">Create New Post</button>
+        </a>
+      <% end %>
     </div>
   </div>
   <% @recent_posts.each do |post|%>
