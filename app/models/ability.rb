@@ -18,7 +18,7 @@ class Ability
       end
       can :destroy, Comment do |comment|
         comment.user == user
-      end      
+      end
       can :create, Post
       can :create, Comment
       can :read, :all
