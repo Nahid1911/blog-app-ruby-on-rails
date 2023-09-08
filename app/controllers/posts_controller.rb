@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   def index
     @comments = Comment.all
@@ -7,10 +8,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.all
+    @post = Post.new
     @post = Post.find params[:id]
+    @posts = Post.all
+    @user = current_user
     @post_id = @posts.index(@post) + 1
-    @user = @post.author
   end
 
   def new

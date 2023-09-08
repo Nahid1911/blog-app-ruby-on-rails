@@ -27,7 +27,7 @@
           <hr>
           <div>
             <% post.comments.each do |comment|%>
-              <p class = "m-0"><strong><%= comment.author.name%></strong>: 
+              <p class = "m-0"><strong><%= comment.user.name%></strong>: 
                 <%= comment.text%>
               </p>
             <% end %>

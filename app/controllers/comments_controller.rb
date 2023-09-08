@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   def new
     @post = Post.find(params[:post_id])
@@ -9,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params.merge(author: @user))
+    @comment = @post.comments.new(comment_params.merge(user: @user))
 
     if @comment.save
       redirect_to user_post_path(@user, @post), notice: 'Comment was successfully created.'
@@ -20,11 +21,20 @@ class CommentsController < ApplicationController
 
   def destroy
     @user = current_user
-    @comment = Comment.find(params[:post_id])
-    @comment.destroy
-    flash[:notice] = 'Comment successfully deleted.'
-    redirect_to user_post_path
+    @comment = Comment.find(params[:id])
+    
+    if @comment.user == @user
+      # Authorization check passed
+      @comment.destroy
+      flash[:notice] = 'Comment successfully deleted.'
+      redirect_to user_post_path
+    else
+      # Authorization check failed
+      flash[:alert] = 'You are not authorized to delete this comment.'
+      redirect_to user_post_path
+    end
   end
+  
 
   private
 

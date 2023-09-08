@@ -20,12 +20,12 @@
         <hr>
         <div>
           <% @post.comments.each do |comment|%>
-            <div class="d-flex justfy-content border">
-              <p class = "m-0 d-flex"><strong><%= comment.author.name%></strong>: 
+            <div class="d-flex justfy-content">
+              <p class = "m-0 d-flex"><strong><%= comment.user.name%></strong>: 
                 <%= comment.text%>
               </p>
-              <% if @post.author.id == current_user.id || current_user.admin? %>
-                <%= button_to 'Delete', user_post_comment_path(@post.author.id, comment), method: :delete, class: 'btn btn-light text-danger btn-sm'%>
+              <% if can? :destroy, comment %>
+                <%= button_to 'Delete', user_post_comment_path(@post.author, @post, comment), method: :delete, class: 'btn btn-light text-danger btn-sm'%>
               <% end %>
             </div>
           <% end %>

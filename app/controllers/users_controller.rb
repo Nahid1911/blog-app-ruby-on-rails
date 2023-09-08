@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
+
   def index
     @users = current_user
     @users = User.all
@@ -16,4 +18,5 @@ class UsersController < ApplicationController
       @recent_posts = @user_posts.limit(3)
     end
   end
+  @post = Post.new
 end
