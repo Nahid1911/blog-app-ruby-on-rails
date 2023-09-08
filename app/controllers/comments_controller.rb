@@ -22,19 +22,18 @@ class CommentsController < ApplicationController
   def destroy
     @user = current_user
     @comment = Comment.find(params[:id])
-    
+
     if @comment.user == @user
       # Authorization check passed
       @comment.destroy
       flash[:notice] = 'Comment successfully deleted.'
-      redirect_to user_post_path
     else
       # Authorization check failed
       flash[:alert] = 'You are not authorized to delete this comment.'
-      redirect_to user_post_path
     end
+    redirect_to user_post_path
   end
-  
+
 
   private
 
