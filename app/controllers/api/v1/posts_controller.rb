@@ -9,8 +9,7 @@ class Api::V1::PostsController < ApplicationController::API
     render json: @post
   end
 
-    def set_user
+  def set_user
     @user = User.find(params[:user_id])
   end
-  
 end
