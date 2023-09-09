@@ -8,6 +8,8 @@ gem 'cancancan'
 gem 'devise'
 gem 'rails', '~> 7.0.7'
 
+gem 'rswag'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -57,6 +59,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'selenium-webdriver'
+  gem 'rswag-specs'
 end
 
 group :development do
